@@ -5,73 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela de Login</title>
     <link rel="shortcut icon" href="Lista/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="mod.css">
     
 </head>
-
-<style>
-  body {
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-  background-color: #023047;
-}
-
-.container {
-  width: 300px;
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-  text-align: center;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-}
-
-input {
-  margin: 10px 0;
-  padding: 10px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button {
-  padding: 10px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-
-p {
-  text-align: center;
-  font-size: 14px;
-}
-
-a {
-  color: #007BFF;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-</style>
 
 <body>
 
@@ -105,90 +41,6 @@ a:hover {
         </div>
     </div>
 
-    <script> 
-      let users = JSON.parse(localStorage.getItem('users')) || [];
-
-function toggleForms() {
-    const loginForm = document.getElementById('loginForm');
-    const createAccountForm = document.getElementById('createAccountForm');
-    const forgotPasswordForm = document.getElementById('forgotPasswordForm');
-    
-  
-    if (loginForm.style.display !== 'none') {
-        loginForm.style.display = 'none';
-        createAccountForm.style.display = 'block';
-        forgotPasswordForm.style.display = 'none';
-    } else {
-        createAccountForm.style.display = 'none';
-        forgotPasswordForm.style.display = 'none';
-        loginForm.style.display = 'block';
-    }
-}
-
-function toggleForgotPassword() {
-    const loginForm = document.getElementById('loginForm');
-    const createAccountForm = document.getElementById('createAccountForm');
-    const forgotPasswordForm = document.getElementById('forgotPasswordForm');
-    
-    
-    if (forgotPasswordForm.style.display !== 'none') {
-        forgotPasswordForm.style.display = 'none';
-        loginForm.style.display = 'block';
-    } else {
-        forgotPasswordForm.style.display = 'block';
-        loginForm.style.display = 'none';
-    }
-}
-
-function createAccount() {
-    const newUsername = document.getElementById('newUsername').value;
-    const newPassword = document.getElementById('newPassword').value;
-
-    
-    if (users.some(user => user.username === newUsername)) {
-        alert('Usuário já existe! Tente outro nome.');
-        return;
-    }
-
-  
-    users.push({ username: newUsername, password: newPassword });
-    localStorage.setItem('users', JSON.stringify(users));
-
-    alert('Conta criada com sucesso!');
-    toggleForms();
-}
-
-function login() {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-   
-    const user = users.find(user => user.username === username && user.password === password);
-
-    if (user) {
-        location.href = '././Lista/Lista.html'
-    } else {
-        alert('Usuário ou senha incorretos!');
-    }
-}
-
-function resetPassword() {
-    const resetUsername = document.getElementById('resetUsername').value;
-    
-    
-    const user = users.find(user => user.username === resetUsername);
-
-    if (user) {
-        const newPassword = prompt('Digite sua nova senha:');
-        user.password = newPassword;
-        localStorage.setItem('users', JSON.stringify(users));
-        alert('Senha redefinida com sucesso!');
-        toggleForgotPassword();
-    } else {
-        alert('Usuário não encontrado!');
-    }
-}
-
-    </script>
+    <script src="back.js"></script>
 </body>
 </html>
