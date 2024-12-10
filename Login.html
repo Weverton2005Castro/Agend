@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Login</title>
+    <link rel="shortcut icon" href="./clerk-javascript/Lista/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./clerk-javascript/Lista/styles/mod.css">
+    
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Tela de Login</h2>
+        
+        <div id="loginForm" class="form">
+            <h3>Login</h3>
+            <input type="text" id="username" placeholder="Usuário" required>
+            <input type="password" id="password" placeholder="Senha" required>
+            <button onclick="login()">Entrar</button>
+            <p>Não tem uma conta? <a onclick="toggleForms()">Crie sua conta</a></p>
+            <p><a onclick="toggleForgotPassword()">Esqueceu a senha?</a></p>
+        </div>
+
+        
+        <div id="createAccountForm" class="form" style="display:none;">
+            <h3>Criar Conta</h3>
+            <input type="text" id="newUsername" placeholder="Novo Usuário" required>
+            <input type="password" id="newPassword" placeholder="Nova Senha" required>
+            <button onclick="createAccount()">Criar Conta</button>
+            <p>Já tem uma conta? <a onclick="toggleForms()">Login</a></p>
+        </div>
+
+       
+        <div id="forgotPasswordForm" class="form" style="display:none;">
+            <h3>Redefinir Senha</h3>
+            <input type="text" id="resetUsername" placeholder="Digite seu usuário" required>
+            <button onclick="resetPassword()">Redefinir Senha</button>
+            <p><a onclick="toggleForgotPassword()">Voltar para o login</a></p>
+        </div>
+    </div>
+
+    <script src="./clerk-javascript/Lista/scripts/back.js" ></script>
+</body>
+</html>
